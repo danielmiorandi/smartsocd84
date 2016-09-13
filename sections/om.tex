@@ -1,8 +1,9 @@
 \subsection{Orchestration Manager}
 \subsubsection{Functionality and Features}
-The OM provides collective composition and negotiation functionality. They can be invoked subsequently or jointly (in the latter case we talk about continuous orchestration, see~\cite{D6.2} for a detailed description). The OM takes as input task requests and outputs an agreed execution plan. 
+The OM provides collective composition and negotiation functionality. Two patterns are supported. The first one is sequential: the composition phase (during which a collective is created in order to complete a given task) has to be completed in order for the negotiation phase (in which peers have to agree to carry out the task) to start. In the second pattern (that we call continuous orchestration, see~\cite{D6.2} for a detailed description) the two phases are carried out jointly. The OM takes as input task requests and outputs an agreed execution plan. 
 \subsubsection{Implementation}
-The OM implementation shipped with the toolbox is written in {\tt JavaScript} and based upon the {\tt node.js} framework. It uses {\tt express} for REST APIs, {\tt jade} as node template and includes a {\tt MongoDB} instance for persistency. Two versions are provided, supporting AskSmartSociety! and SmartShare applications. They can be easily reused to develop application-specific OMs.
+The OM implementation shipped with the toolbox is written in {\tt JavaScript} and based upon the {\tt node.js} framework. It uses {\tt express} for REST APIs, {\tt jade} as node template and includes a {\tt MongoDB} instance for persistency. Two versions are provided, which instantiate the two aforementioned patterns\footnote{They have been used for validation with AskSmartSociety! and SmartShare applications.}. 
+They can be used out of the box or can represent templates in case specific composition or negotiation algorithms are required. %easily reused to develop application-specific OMs.
 \subsubsection{Interfaces, Endpoints and Resources Exposed}
 % \todo{@Zhenyu/Michael: please check}
 We start with task requests:
