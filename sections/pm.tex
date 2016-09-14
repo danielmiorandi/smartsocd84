@@ -12,7 +12,7 @@ We divide APIs in chapters. Let us start with the security ones\footnote{We remi
 \item {\bf POST /security/login} Used for authentication. The call includes as parameters an identifier and a password. In the response a token to be used for further interactions with the platform is included.
 \item {\bf POST /security/logout} Log the peer out of the PM.
 \item {\bf GET /person} Read the person of a given logged user. 
-\item {\bf GET /person\_sl?username=:username\&password=:password} Register a new human peer. Redirects to the newly created peer ID.  \todo{Ronald: should be a POST? -> Luc is right}
+\item {\bf POST /person\_sl} Register a new human peer. Specifies username and password in the body of the request. Redirects to the newly created peer ID.  %\todo{Ronald: should be a POST? -> Luc is right}
 \end{itemize}
 The second set of APIs cover management operations:
 \begin{itemize}
@@ -41,9 +41,9 @@ The second set of APIs cover management operations:
 \item {\bf DELETE /peers/:id} Delete peer: delete the peer structure with the given id.
 \item {\bf POST /users}	Create user: create a new user by specifying the username (unique, passed as a string), password and main entity. Redirects to the new user. 											
 \item {\bf GET /users/:id} Read user by id: read information stored in the user structure with the matching id.											
-\item {\bf GET /users/:username} Read user by username: read information stored in the user structure with the matching username.		
-\todo{clarify difference between the two calls above, seems dangerous as the endpoint is the same!}								
-\item {\bf PUT /users/:id} Update user password: replaces the existing user password for the user with the given id. \todo{updates only pwd or user description?}
+%\item {\bf GET /users/:username} Read user by username: read information stored in the user structure with the matching username.		
+%\todo{clarify difference between the two calls above, seems dangerous as the endpoint is the same!}								
+\item {\bf PUT /users/:id} Update user attributes, in particular it replaces the existing user password with a new one, specified in the request. %\todo{updates only pwd or user description?}
 \item {\bf DELETE /users/:id} Delete user: deletes the user with the given id.
 \end{itemize}
 \subsubsection{Repository}
