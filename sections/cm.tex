@@ -1,7 +1,7 @@
 \subsection{Context Manager}
 \subsubsection{Functionality and Features}
-
-The Context Manager (CM) is the software/hardware embodiment of the three-layer approach for context recognition described in~\cite{D4.3}. It includes three components:
+The Context Manager (CM) is responsible for monitoring the context of human peers and users. %is the software/hardware embodiment of the three-layer approach for context recognition described in~\cite{D4.3}. 
+It includes three components:
 \begin{itemize}
 \item Sensing devices: able to capture relevant parameters for identifying the peer context.
 \item Modules for aggregating and merging attribute values from sensor data.
@@ -24,7 +24,7 @@ The CM is written in multiple languages depending on the component.
 \subsubsection{Interfaces, Endpoints and Resources Exposed}
 
 \begin{itemize}
-\item {\bf POST /monitorTask} Starts the process that monitors a specific task that as to be passed in the body of the request.
+\item {\bf POST /monitorTask} Starts the process that monitors a specific task that as to be passed in the body of the request. Redirects to the new monitor. 
 \item {\bf GET /monitorTask} Get all the tasks which are being monitored by TEM with their status.
 \item {\bf GET /monitorTask/:rideRequestID} Get a specific task which is being monitored by TEM with its status.
 \item {\bf DELETE /monitorTask/:rideRequestID} Terminate the monitoring of a task.

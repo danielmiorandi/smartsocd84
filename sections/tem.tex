@@ -1,12 +1,12 @@
 \subsection{Task Execution Manager}
 \subsubsection{Functionality and Features}
 The TEM is tasked with coordinating the execution of tasks, especially those involving `offline' actions by peers and collectives. The TEM acts as a monitoring platform and interacts with the Orchestration Manager and Context Manager/Peer Manager. It takes tasks agreed from the OM and instantiates the required monitors with the CM.
-For each task to be monitored the Execution Monitor requires as an input from the OM:
+For each task to be monitored, the Execution Monitor requires as an input from the OM:
 \begin{itemize} 
 \item A description of the task whose execution has to be monitored; 
 \item The IDs of the peers involved in the execution
 \end{itemize}
-At the same time the TEM will also have access to:
+At the same time, the TEM will also have access to:
 \begin{itemize}
 \item Updates on the status of relevant peers from the PM (which are derived from sensory data related to the peers involved in the execution of the task);
 \item Mid and high-level data derived by sensor fusion in time and user input
@@ -17,12 +17,12 @@ Using these two sources the TEM produces an output to inform the OM of:
 \item Possible deviations that occur during the execution of this task; major deviations should be properly expressed to allow the OM to react in a timely manner.
 \end{itemize}
 \subsubsection{Implementation}
-The TEM is implemented in javascript using the node.js framework. Express is using for the REST API implementation and a MongoDB instance for storing data locally.
+The TEM is implemented in javascript using the node.js framework. Express is used for the REST API implementation and a MongoDB instance for storing data locally.
 
 \subsubsection{Interfaces, Endpoints and Resources Exposed}
 \begin{itemize}
 \item {\bf GET /monitorTask} Get all the tasks which are being monitored by the TEM.
-\item {\bf POST /monitorTask} Starts monitoring the execution of an agreed task by instantiating the relevant monitors. 
+\item {\bf POST /monitorTask} Starts monitoring the execution of an agreed task by instantiating the relevant monitors. Redirects to the new task.
 \item {\bf PUT /updateMonitor/:taskID} update the monitor of a task in TEM.
 \item {\bf DELETE /terminateTaskMonitor/:taskID} Terminate the monitoring of a task.
 \item {\bf GET /terminatedTasks} Get the list of all the terminated tasks.

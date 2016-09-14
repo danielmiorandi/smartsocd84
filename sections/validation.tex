@@ -1,10 +1,23 @@
 
 
 The final goal of validation activity is to test the ability of the platform to meet the high-level requirements %of the platform were 
-described and analyzed in detail in~\cite{D8.1}. In Table~\ref{tab:req} we summarize the achievements of the platform development in terms of ability to meet the requirements identified by the Consortium.
+described and analysed in detail in~\cite{D8.1}. In Table~\ref{tab:req} we summarize the achievements of the platform development in terms of ability to meet the requirements identified by the Consortium.
 
-As it can be seen, most of the requirements, but not all, have been met. In general, this reflects on the one hand a shift in focus  
+As it can be seen, most of the requirements, but not all, have been met. In particular, the following shortcomings have been identified:
+\begin{itemize}
+\item Platform usability: The PF is the entry point for developers to access the toolkit functionality. As its implementation is still under way (will be completed by M48, as per DoW), its ability to harness the complexity of the SmartSociety platform is still to be validated.
+\item Privacy and security: Initially one of the key aspect was expected to be the ability by the users to define access control policies to personal information. As this feature was not relevant for any of the case studies and scenarios identified its priority in terms of implementation was downscaled throughout the project. 
+\item Governance: in~\cite{D1.2} we discussed platform enablers for supporting a fair governance of the platform. As this feature was not relevant for any of the case studies and scenarios identified its priority in terms of implementation was downscaled throughout the project. 
+\end{itemize}
 
+Validation has been achieved by developing and deploying applications running on the platform. Throughout the project, two main applications have been used:
+\begin{itemize}
+\item SmartShare: a ride-sharing application targeting localised communities of users and able to match user preferences thanks to advanced artificial intelligence methods. 
+\item AskSmartSociety!: a hybrid Q\&A application whereby answers to questions posed by users are based upon a combination of Web-powered machine peers and subject matter experts.
+\end{itemize}
+SmartShare uses the resources exposed by the OM, the PM, the PS, the RM, the CM and the TEM. It was used in a number of small-scale pilots at the Consortium partners' site and is now being piloted with various municipalities in Italy by IMA.
+AskSmartSociety! uses the resources exposed by the OM, the PM, the IS and SmartCom. Thanks to its flexibility it was widely used to fork lab-scale applications (see examples in~\cite{D8.3}).
+Both applications used the monitoring component.
 %As it can be seen, not all requirements have been met yet, in most cases as they refer to components which are still not fully completed within the respective workpackage. Yet, the platform in its current version already provides the minimum level of functionality required to handle a rather large range of social computations, as demonstrated by the available demo applications.
 
 \begin{sidewaystable}
@@ -13,7 +26,7 @@ As it can be seen, most of the requirements, but not all, have been met. In gene
 ID & Chapter & Description & Met? & Remarks \\
 \hline \hline
 CR-1 & Computational Requirements & The platform should be able to execute human-based computations & Yes & See SmartShare and AskSmartSociety! demo\\  \hline
-CR-2 & Computational Requirements & The platform should be able to execute machine-based computations & Yes & \\ \hline
+CR-2 & Computational Requirements & The platform should be able to execute machine-based computations & Yes & See AskSmartSociety! demo\\ \hline
 CR-3 & Computational Requirements & The platform should be able to support hybrid computations & Yes & See AskSmartSociety! demo\\ \hline
 PP-1 & Peer Profiles and Peer Profiling & Peers will be characterized by a static and a dynamic profile. & Yes & The CM maintains the dynamic part of the profile\\ \hline
 PP-2 & Peer Profiles and Peer Profiling & Peer profiles data storage & Yes & See \cite{D4.3}  for integration with PPL\\ \hline

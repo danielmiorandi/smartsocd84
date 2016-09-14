@@ -10,7 +10,7 @@ The provenance service is developed in Python and uses the Django framework.
 \begin{itemize}
 \item {\bf POST template/} Post a template: Posts a provenance template to the Provenance Store (https://provenance.ecs.soton.ac.uk/store/). The data posted must contain key value pairs for prov and template\_name.
 \item {\bf GET template/:template/} Get a template: Returns a JSON object detailing the template's id, name, version and a URI linking to where the template is stored in the Provenance Store.
-\item {\bf POST binding/} Post a provenance binding to the Provenance Store. The data posted must contain key value pairs for prov, template\_name, and binding\_name, it can optionally contain a version\_id.  When a binding is submitting without specifying a version, it is associated with the latest version of a template with template\_name.
+\item {\bf POST binding/} Post a provenance binding to the Provenance Store. The data posted must contain key value pairs for prov, template\_name, and binding\_name, it can optionally contain a version\_id.  When a binding is submitted without specifying a version, it is associated with the latest version of a template with template\_name.
 \item {\bf GET binding/:binding/} Get a binding: returns a JSON object detailing the binding's id, name, and a URI linking to where the binding is stored in the Provenance Store.
 \item {\bf POST template/name/} Get all versions of a template: returns a JSON object containing all template versions with a specified name.
 \end{itemize}

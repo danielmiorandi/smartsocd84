@@ -7,26 +7,26 @@ Not applicable, the PM is owned by University of Trento and implementation detai
 \subsubsection{Interfaces, Endpoints and Resources Exposed}
 % \todo{add from https://docs.google.com/spreadsheets/d/1UlRKshoALlSzmJYZVLkuzAGTUukdFKaONlKqPmd3RWo/edit#gid=0}
 % \todo{@Ronald: please check the APIs \& also whether we can share them (deliverable is PU)}
-We divide APIs in chapters. Let us start with the security ones:
+We divide APIs in chapters. Let us start with the security ones\footnote{We remind hereby that the PM is responsible for authenticating all agents on the platform.}:
 \begin{itemize}
-\item {\bf POST /security/login} Used for authentication. The call includes as parameters an identifier and a password, and returns, among the other data, a token to be used for further interactions with the platform.
+\item {\bf POST /security/login} Used for authentication. The call includes as parameters an identifier and a password. In the response a token to be used for further interactions with the platform is included.
 \item {\bf POST /security/logout} Log the peer out of the PM.
 \item {\bf GET /person} Read the person of a given logged user. 
-\item {\bf GET /person\_sl?username=:username\&password=:password} Register a new human peer. Returns a peer ID. 
+\item {\bf GET /person\_sl?username=:username\&password=:password} Register a new human peer. Redirects to the newly created peer ID.  \todo{Ronald: should be a POST? -> Luc is right}
 \end{itemize}
 The second set of APIs cover management operations:
 \begin{itemize}
 \item {\bf GET /search}. General search machinery. Check~\cite{D4.3} for more explanations on the query language to be used. 	
-\item {\bf POST /collectives} Create collective: create a collective structure from a set of usernames.
-\item {\bf GET /collectives/identifier}	Return the usernames of all peers in a collective.				
-\item {\bf DELETE /collectives/} Delete the collective with a given id.	
+\item {\bf POST /collectives} Create a collective: create a collective structure from a set of usernames. Redirects to the created collective.
+\item {\bf GET /collectives/:id}	Return the usernames of all peers in a collective.				
+\item {\bf DELETE /collectives/:id} Delete the collective with a given :id.	
 \item {\bf GET /types} Return the names and id of all the types defined in the peer manager.
 \item {\bf GET /types/:id} Return a list of all the attributes for the given type id.
-\item {\bf POST /instances} Create a new instance from a given type and its attributes values. 
+\item {\bf POST /instances} Create a new instance from a given type and its attributes values. Redirects to the newly created instance.
 \item {\bf GET /instances/:id} Return the type and the attribute values for the given instance.
 \item {\bf PUT /instances/:id} Update one or more attributes for a given instance id (only attributes passed as in this call will be affected).											
 \item {\bf DELETE /instances/:id } Delete the instance structure with the given id.						
-\item {\bf POST /profiles} Create a new profile from an existing instance, a transformation and a policy.
+\item {\bf POST /profiles} Create a new profile from an existing instance, a transformation and a policy. Redirects to the new profile.
 \item {\bf GET /profiles/:id} Read profile by id: returns the type, the transformation, the policy and the attribute values for the given profile. 
 \item {\bf DELETE /profiles/:id} Delete profile by id: delete the profile structure with the given id.	
 \item {\bf POST /transformations}  Create a new transformation specifying the source type, the destination type and the attribute transformations to be performed.
@@ -39,10 +39,11 @@ The second set of APIs cover management operations:
 \item {\bf GET /peers/:id} Read peer: read the main entity and defined profiles for a peer.
 \item {\bf PUT /peers/:id} Update peer profiles: update the defined profiles for a peer (replaces previous definitons).
 \item {\bf DELETE /peers/:id} Delete peer: delete the peer structure with the given id.
-\item {\bf POST /users}	Create user: create a new user by specifying the username(unique), password and main entity.											
+\item {\bf POST /users}	Create user: create a new user by specifying the username (unique, passed as a string), password and main entity. Redirects to the new user. 											
 \item {\bf GET /users/:id} Read user by id: read information stored in the user structure with the matching id.											
-\item {\bf GET /users/:username}	Read user by username: read information stored in the user structure with the matching username.										
-\item {\bf PUT /users/:id} Update user password: replaces the existing user password for the user with the given id.	
+\item {\bf GET /users/:username} Read user by username: read information stored in the user structure with the matching username.		
+\todo{clarify difference between the two calls above, seems dangerous as the endpoint is the same!}								
+\item {\bf PUT /users/:id} Update user password: replaces the existing user password for the user with the given id. \todo{updates only pwd or user description?}
 \item {\bf DELETE /users/:id} Delete user: deletes the user with the given id.
 \end{itemize}
 \subsubsection{Repository}
